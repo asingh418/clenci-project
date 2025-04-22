@@ -1,0 +1,203 @@
+logo:
+  url: clencli/logo.jpeg
+  label: Photo by [Felipe Dias](https://unsplash.com/fdiascreator) on [Unsplash](https://unsplash.com)
+shields:
+  badges:
+  - description: GitHub issues
+    image: https://img.shields.io/github/issues/awslabs/clencli
+    url: https://github.com/awslabs/clencli/issues
+  - description: GitHub forks
+    image: https://img.shields.io/github/forks/awslabs/clencli
+    url: https://github.com/awslabs/clencli/network
+  - description: GitHub stars
+    image: https://img.shields.io/github/stars/awslabs/clencli
+    url: https://github.com/awslabs/clencli/stargazers
+  - description: GitHub license
+    image: https://img.shields.io/github/license/awslabs/clencli
+    url: https://github.com/awslabs/clencli/blob/master/LICENSE
+  - description: Twitter
+    image: https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2Fawslabs%2Fclencli
+    url: https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fawslabs%2Fclencli
+app:
+  name: Cloud Engineer CLI
+  function: A CLI built to assist Cloud Engineers.
+  id: clencli
+usage: |-
+  In a polyglot world where a team can choose it's programming language, often this flexibility can spill into chaos as every repo looks different.
+  CLENCLI solves this issue by giving developers a quick and easy way to create a standardised repo structure and easily rendering documentation via a YAML file.
+
+  ### Create a new project
+  ```
+    $ clencli init project --project-name foo
+    $ tree -a moon/
+    foo/
+    ├── clencli
+    │   ├── readme.tmpl
+    │   └── readme.yaml
+    └── .gitignore
+  ```
+
+  ### Create a new CloudFormation project
+  ```
+  $ clencli init project --project-name foo --project-type cloudformation
+  $ tree -a sun/
+    foo/
+    ├── clencli
+    │   ├── hld.tmpl
+    │   ├── hld.yaml
+    │   ├── readme.tmpl
+    │   └── readme.yaml
+    ├── environments
+    │   ├── dev
+    │   └── prod
+    ├── .gitignore
+    ├── skeleton.json
+    └── skeleton.yaml
+  ```
+
+  ### Create a new Terraform project
+  ```
+  $ clencli init project --project-name foo --project-type terraform
+  $ tree -a foo/
+  foo/
+  ├── clencli
+  │   ├── hld.tmpl
+  │   ├── hld.yaml
+  │   ├── readme.tmpl
+  │   └── readme.yaml
+  ├── environments
+  │   ├── dev.tf
+  │   └── prod.tf
+  ├── .gitignore
+  ├── LICENSE
+  ├── main.tf
+  ├── Makefile
+  ├── outputs.tf
+  └── variables.tf
+  ```
+
+  ## Render a template
+  ```
+  $ clencli init project --project-name foo
+  foo was successfully initialized as a basic project
+  $ cd foo/
+  $ clencli render template
+  Template readme.tmpl rendered as README.md
+  ```
+
+  The `README.md` you are reading right now was generated and it's maintained by `CLENCLI` itself.
+  Please check [readme.yaml](clencli/readme.yaml) for more details.
+
+  ## Download a .gitignore for your project
+  ```
+  $ clencli gitignore --input="terraform,visualstudiocode"
+  .gitignore created successfully
+  $ less .gitignore
+
+  # Created by https://www.toptal.com/developers/gitignore/api/terraform,visualstudiocode
+  # Edit at https://www.toptal.com/developers/gitignore?templates=terraform,visualstudiocode
+
+  ### Terraform ###
+  # Local .terraform directories
+  **/.terraform/*
+
+  # .tfstate files
+  *.tfstate
+  *.tfstate.*
+
+  # Crash log files
+  crash.log
+
+  # Ignore any .tfvars files that are generated automatically for each Terraform run. Most
+  # .tfvars files are managed as part of configuration and so should be included in
+  # version control.
+  #
+  # example.tfvars
+
+  # Ignore override files as they are usually used to override resources locally and so
+  # are not checked in
+  override.tf
+  override.tf.json
+  *_override.tf
+  *_override.tf.json
+
+  # Include override files you do wish to add to version control using negated pattern
+  # !example_override.tf
+
+  # Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
+  # example: *tfplan*
+
+  ### VisualStudioCode ###
+  .vscode/*
+  !.vscode/settings.json
+  !.vscode/tasks.json
+  !.vscode/launch.json
+  !.vscode/extensions.json
+  *.code-workspace
+
+  ### VisualStudioCode Patch ###
+  # Ignore all local history of files
+  .history
+  .ionide
+
+  # End of https://www.toptal.com/developers/gitignore/api/terraform,visualstudiocode
+
+  ```
+  Additionally, you can also *customize the initialization* of your projects (scaffolding) and download photos for your projects from [unsplash](https://unsplash.com), please read more [here](https://github.com/awslabs/clencli/wiki/Configuration).
+installing: Download the latest version [released](https://github.com/awslabs/clencli/releases)
+  according to your platform and execute it directly. I recommend placing the binary
+  into your `$PATH`, so it's easily accessible.
+include:
+- COMMANDS.md
+contributors:
+- name: Silva, Valter
+  role: AWS Professional Services - Cloud Architect
+  email: valterh@amazon.com
+acknowledgments:
+- name: Sia, William
+  role: AWS Professional Service - Senior Cloud Architect
+- name: Dhingra, Prashit
+  role: AWS Professional Service - Cloud Architect
+references:
+- description: Cobra is both a library for creating powerful modern CLI applications
+    as well as a program to generate applications and command files.
+  name: cobra
+  url: https://github.com/spf13/cobra
+- description: Viper is a complete configuration solution for Go applications including
+    12-Factor apps.
+  name: viper
+  url: https://github.com/spf13/viper
+- description: The Twelve-Factor App
+  name: twelve-factor-app
+  url: https://12factor.net
+- description: gomplate is a template renderer which supports a growing list of datasources,
+    such as JSON (including EJSON - encrypted JSON), YAML, AWS EC2 metadata, BoltDB,
+    Hashicorp Consul and Hashicorp Vault secrets.
+  name: gomplate
+  url: https://github.com/hairyhenderson/gomplate
+- description: The most powerful photo engine in the world.
+  name: unsplash
+  url: https://unsplash.com
+- description: The Free Image Placeholder Service Favoured By Designers
+  name: placeholder
+  url: https://placeholder.com
+- description: The best Lorem Ipsum Generator in all the sea
+  name: pirate-ipsum
+  url: https://pirateipsum.me
+- description: Record Fast Screencasts
+  name: recordit
+  url: https://recordit.co
+- description: A terminal-to-gif recorder minus the headaches.
+  name: ttystudio
+  url: https://github.com/chjj/ttystudio
+- description: GitHub Super Linter
+  name: gihub-super-linter
+  url: https://github.com/github/super-linter
+- description: GitHub Actions
+  name: github-actions
+  url: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions
+- description: Create useful .gitignore files for your project
+  name: gitignore.io
+  url: https://www.toptal.com/developers/gitignore
+license: This project is licensed under the Apache License 2.0.
+copyright: Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
